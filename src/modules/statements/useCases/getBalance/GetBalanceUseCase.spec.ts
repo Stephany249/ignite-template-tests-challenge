@@ -8,7 +8,7 @@ let memoryStatementsRepository: InMemoryStatementsRepository;
 let memoryUsersRepository: InMemoryUsersRepository;
 let getBalanceUseCase: GetBalanceUseCase;
 
-describe('Create User', () => {
+describe('Get Balance', () => {
 
   beforeEach(() => {
     memoryStatementsRepository = new InMemoryStatementsRepository();

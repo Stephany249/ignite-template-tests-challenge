@@ -8,7 +8,7 @@ let memoryStatementsRepository: InMemoryStatementsRepository;
 let memoryUsersRepository: InMemoryUsersRepository;
 let createStatementUseCase: CreateStatementUseCase;
 
-describe('Create User', () => {
+describe('Create Statement', () => {
 
   beforeEach(() => {
     memoryStatementsRepository = new InMemoryStatementsRepository();
@@ -27,7 +27,7 @@ describe('Create User', () => {
       type: OperationType.DEPOSIT, amount: 15000, description: "Desenvolvimento de uma aplicação"
     };
 
-    const statementWithdrawCreated = await memoryStatementsRepository.create({
+    const statementWithdrawCreated = await createStatementUseCase.execute({
       user_id: user.id as string,
       type: deposit.type,
       amount: deposit.amount,
@@ -38,7 +38,7 @@ describe('Create User', () => {
       type: OperationType.WITHDRAW, amount: 2400, description: "Aluguel"
     };
 
-    const statementDepositCreated = await memoryStatementsRepository.create({
+    const statementDepositCreated = await createStatementUseCase.execute({
       user_id: user.id as string,
       type: withdraw.type,
       amount: withdraw.amount,
